@@ -1,8 +1,8 @@
 [
     {
-        "title": "A Title",
+        "title": "Page 1",
         "description": "A simple description for the page card",
-        "cover": "https://picsum.photos/200/300",
+        "cover": null,
         "button": {
             "text": "View page",
             "icon": null,
@@ -11,13 +11,25 @@
         }
     },
     {
-        "title": "A Title 2",
+        "title": "Page 2",
         "description": "A simple description for the page card",
-        "cover": "https://picsum.photos/200/300",
+        "cover": null,
         "button": {
             "text": "View page",
             "icon": "fal fa-heart",
-            "type": "secondary",
+            "type": "primary",
+            "link": "#"
+        }
+    }
+    ,
+    {
+        "title": "Page 3",
+        "description": "A simple description for the page card",
+        "cover": null,
+        "button": {
+            "text": "View page",
+            "icon": "fal fa-heart",
+            "type": "primary",
             "link": "#"
         }
     }

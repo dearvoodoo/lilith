@@ -49,8 +49,16 @@
     --scrollbar-thin-track: transparant!important;
 }
 
+@font-face {
+    font-family: "deathcrow";
+    src: url("../font/DEATHCROW.ttf") format('truetype');
+}
+
 html, body {
-	background-color: var(--bg-2);
+	background: url("../images/background.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
 	color: var(--text-1)
 }
 
@@ -62,22 +70,20 @@ html, body {
 }
 
 .card#card-menu {
-	transition: ease-in-out .2s;
+	transition: ease-in-out .5s;
 }
 .card#card-menu:hover {
-	transform: scale(1.03)
+	transform: scale(1.02)
 }
 
 .btn-primary {
 	background: var(--accent-opacity-70);
 	border: none;
-	border-radius: var(--roundness);
 }
 
 .btn-primary:hover {
 	background: var(--accent-opacity-90);
 	border: none;
-	border-radius: var(--roundness);
 }
 
 .modal {
@@ -215,4 +221,36 @@ table.dataTable thead>tr>th.sorting:after, table.dataTable thead>tr>th.sorting_a
     align-items: center;
     flex-wrap: nowrap;
     flex-direction: row;
+}
+
+.grid-item {
+    width: 100%;
+}
+
+.card-img, .card-img-overlay {
+    border-radius: var(--roundness);
+}
+
+.card-body {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-content: center;
+    justify-content: space-between;
+    align-items: stretch;
+    height: 100%;
+}
+
+.card-img {
+    filter: brightness(0.5);
+}
+
+.card#card-menu:hover .card-img {
+	filter: brightness(0.4) blur(1px)!important;
+}
+
+.card-title {
+    font-family: "deathcrow", sans-serif;
+    color: var(--accent-1);
+    font-size: 2.5em;
 }
