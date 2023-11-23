@@ -1,0 +1,24 @@
+[
+    {
+        "title": "A Title",
+        "description": "A simple description for the page card",
+        "cover": "https://picsum.photos/200/300",
+        "button": {
+            "text": "View page",
+            "icon": null,
+            "type": "primary",
+            "link": "#"
+        }
+    },
+    {
+        "title": "A Title 2",
+        "description": "A simple description for the page card",
+        "cover": "https://picsum.photos/200/300",
+        "button": {
+            "text": "View page",
+            "icon": "fal fa-heart",
+            "type": "secondary",
+            "link": "#"
+        }
+    }
+]
