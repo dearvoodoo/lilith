@@ -1,36 +1,68 @@
 [
     {
-        "title": "Page 1",
-        "description": "A simple description for the page card",
-        "cover": null,
+        "title": "Thumbnail grabber",
+        "description": "A tool make to grab Youtube thumbnails.<br>Just enter the video link and same thumbnails :)",
         "button": {
-            "text": "View page",
-            "icon": null,
+            "text": "Open Youtube Thumbnail Grabber",
+            "icon": "fab fa-youtube",
             "type": "primary",
-            "link": "#"
+            "link": null,
+            "script": "openPage('thumbnail-grabber')"
         }
     },
     {
-        "title": "Page 2",
-        "description": "A simple description for the page card",
-        "cover": null,
+        "title": "Random color",
+        "description": "Generate random color and give you all the informations you can hope.",
         "button": {
-            "text": "View page",
-            "icon": "fal fa-heart",
+            "text": "Open Random Color",
+            "icon": "fal fa-palette",
             "type": "primary",
-            "link": "#"
+            "link": null,
+            "script": "openPage('random-color')"
         }
-    }
-    ,
+    },
     {
-        "title": "Page 3",
+        "title": "Fancy Text Generator",
         "description": "A simple description for the page card",
-        "cover": null,
         "button": {
             "text": "View page",
             "icon": "fal fa-heart",
             "type": "primary",
-            "link": "#"
+            "link": "#",
+            "script": null
+        }
+    },
+    {
+        "title": "Destiny 2 Font",
+        "description": "A simple description for the page card",
+        "button": {
+            "text": "View page",
+            "icon": "fal fa-heart",
+            "type": "primary",
+            "link": "#",
+            "script": null
+        }
+    },
+    {
+        "title": "Realtime Clock",
+        "description": "A simple description for the page card",
+        "button": {
+            "text": "View page",
+            "icon": "fal fa-heart",
+            "type": "primary",
+            "link": "#",
+            "script": null
+        }
+    },
+    {
+        "title": "Countdown",
+        "description": "A simple description for the page card",
+        "button": {
+            "text": "View page",
+            "icon": "fal fa-heart",
+            "type": "primary",
+            "link": "#",
+            "script": null
         }
     }
 ]
