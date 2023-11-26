@@ -823,3 +823,119 @@ button {
     top: 50%;
     transform: translate(-50%, -50%);
 }
+
+.footer {
+    position: fixed;
+    background: rgba(0, 0, 0, 0.69);
+    font-size: 0.575rem;
+    border-block-start: 1px solid rgba(0, 0, 0, 0.1);
+    bottom: 0;
+    border-radius: var(--roundness);
+    margin: 2rem;
+    width: 50vw;
+    left: 50%;
+    transform: translate(-50%);
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+}
+
+.footer .container {
+    padding-inline-start: 0.75rem;
+    padding-inline-end: 0.75rem;
+}
+
+.footer .social {
+    margin: 0 auto;
+}
+
+.footer .social ul li {
+    float: left;
+    padding: 7px;
+}
+
+.footer .social ul li a {
+    width: 29px;
+    height: 29px;
+    display: block;
+    line-height: 25px;
+    border-radius: 50%;
+    border-color: rgba(255, 255, 255, 0.1);
+    background: var(--bg-3);
+    color: #dedefd;
+}
+
+.footer1 {
+    padding: 5px;
+}
+
+.footer-social-list {
+    padding-inline-start: 0;
+    list-style: none;
+    margin: 0;
+    line-height: 1.25rem;
+}
+
+.footer-social-list li {
+    display: inline-block;
+    padding: 5px;
+}
+
+.footer-social-list a {
+    text-decoration: none;
+    font-size: 1rem;
+}
+
+@media (max-width: 992px) {
+    .footer-social-list {
+        text-align: center;
+        margin-block-start: 1rem;
+    }
+
+    .footer1 {
+        text-align: center;
+    }
+}
+
+@media only screen and (max-width: 767px) {
+    .footer {
+        padding: 1.25rem 0;
+    }
+}
+
+.footer a:not(.btn) {
+    color: var(--accent-1);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
