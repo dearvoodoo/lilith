@@ -1,0 +1,89 @@
+[
+    {
+        "type": "post",
+        "id": "1",
+        "title": "Lorem Post",
+        "short_description": "short_description",
+        "long_description": "long_description",
+        "content": "content",
+        "slug": "lorem-post",
+        "link": "link",
+        "status": "published",
+        "modified": null,
+        "date": 1708183696,
+        "author": [
+            {
+                "name": "VooDoo",
+                "cover": "https://placehold.co/256x256/grey/black/svg"
+            }
+        ],
+        "featured_media": "https://placehold.co/1920x1080/grey/black/svg",
+        "format": "format",
+        "meta": "meta",
+        "categorie":  "categories",
+        "tags": [
+            "tags",
+            "tags",
+            "tags",
+            "tags"
+        ]
+    },
+    {
+        "type": "post",
+        "id": "2",
+        "title": "Lorem Post",
+        "short_description": "short_description",
+        "long_description": "long_description",
+        "content": "content",
+        "slug": "lorem-post-1",
+        "link": "link",
+        "status": "published",
+        "modified": null,
+        "date": 1707617906,
+        "author": [
+            {
+                "name": "VooDoo",
+                "cover": "https://placehold.co/256x256/grey/black/svg"
+            }
+        ],
+        "featured_media": "https://placehold.co/1920x1080/grey/black/svg",
+        "format": "format",
+        "meta": "meta",
+        "categorie":  "categories",
+        "tags": [
+            "tags",
+            "tags",
+            "tags",
+            "tags"
+        ]
+    },
+    {
+        "type": "post",
+        "id": "3",
+        "title": "Lorem Post",
+        "short_description": "short_description",
+        "long_description": "long_description",
+        "content": "content",
+        "slug": "lorem-post-2",
+        "link": "link",
+        "status": "published",
+        "modified": null,
+        "date": 1707617906,
+        "author": [
+            {
+                "name": "VooDoo",
+                "cover": "https://placehold.co/256x256/grey/black/svg"
+            }
+        ],
+        "featured_media": "https://placehold.co/1920x1080/grey/black/svg",
+        "format": "format",
+        "meta": "meta",
+        "categorie":  "categories",
+        "tags": [
+            "tags",
+            "tags",
+            "tags",
+            "tags"
+        ]
+    }
+]
