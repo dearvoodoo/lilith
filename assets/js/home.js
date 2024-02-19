@@ -1,7 +1,7 @@
-﻿$(document).ready(function(){
+$(document).ready(function(){
     getYoutube().then(data => {
         var data = JSON.parse(data)
-        $.each([1, 2, 3, 4, 5], function(index, value){
+        $.each([0, 1, 2, 3, 4, 5], function(index, value){
             var article = `
                 <div class="col">
                     <article class="card h-100 border-0 shadow-sm card-hover-primary" style="
@@ -44,46 +44,39 @@
         var post_categories = $("#post_categories")
         var post_items = $("#post_items")
 
-        $.each(data, function(p, post){
-            if($("#" + post.categorie.toLowerCase()).length == 0) {
-                post_categories.append(`
-                    <li class="nav-item" id="${post.categorie.toLowerCase()}">
-                        <a href="/${post.categorie}" class="nav-link">${post.categorie.substr(0,1).toUpperCase()+post.categorie.substr(1)}</a>
-                    </li>
-            `);
-            }
-
+        if (data[0].type == "no_post") {
             var article = `
-            <article class="card border-0 shadow-sm overflow-hidden mb-4">
+            <article class="card border-0 shadow-sm overflow-hidden mb-4" style="border: 2px dashed #e5e5e50f !important;">
                 <div class="row g-0">
                     <div class="col-sm-4 position-relative bg-repeat-0 bg-size-cover"
-                        style="background-image: url(${post.featured_media}); min-height: 15rem;">
-                        <a href="${post.link}" class="position-absolute top-0 start-0 w-100 h-100"
+                        style="background-image: url(https://picsum.photos/id/96/1920/1080); min-height: 15rem;">
+                        <a href="#" class="position-absolute top-0 start-0 w-100 h-100"
                             aria-label="Read more"></a>
                     </div>
                     <div class="col-sm-8">
                         <div class="card-body">
                             <div class="d-flex align-items-center mb-3">
-                                <a href="/${post.categorie}" class="badge fs-sm text-nav bg-secondary text-decoration-none">
-                                    ${post.categorie}
+                                <a href="#" class="badge fs-sm text-nav bg-secondary text-decoration-none">
+                                    No post
                                 </a>
                                 <span class="fs-sm text-muted border-start ps-3 ms-3">
-                                    ${moment(new Date(0).setUTCSeconds(post.date)).fromNow()}
+                                    ${moment(new Date(Date.now())).fromNow()}
                                 </span>
                             </div>
                             <h3 class="h4">
-                                <a href="${post.link}">
-                                    ${post.title}
+                                <a href="#">
+                                    No post for the moment
                                 </a>
                             </h3>
                             <p>
-                                ${post.short_description}
+                                No post on this site for the moment.
+                                The dev is slow AF... just wait...
                             </p>
                             <hr class="my-4">
                             <div class="d-flex align-items-center justify-content-between">
                                 <a href="#" class="d-flex align-items-center fw-bold text-dark text-decoration-none me-3">
-                                    <img src="${post.author[0].cover}" class="rounded-circle me-3" width="48" alt="Avatar">
-                                    ${post.author[0].name}
+                                    <img src="https://picsum.photos/id/117/256/256" class="rounded-circle me-3" width="48" alt="Avatar">
+                                    Lilith
                                 </a>
                             </div>
                         </div>
@@ -92,7 +85,57 @@
             </article>
             `
             post_items.append(article)
-        })
+        } else {
+            $.each(data, function(p, post){
+                if($("#" + post.categorie.toLowerCase()).length == 0) {
+                    post_categories.append(`
+                        <li class="nav-item" id="${post.categorie.toLowerCase()}">
+                            <a href="/${post.categorie}" class="nav-link">${post.categorie.substr(0,1).toUpperCase()+post.categorie.substr(1)}</a>
+                        </li>
+                `);
+                }
+
+                var article = `
+                <article class="card border-0 shadow-sm overflow-hidden mb-4">
+                    <div class="row g-0">
+                        <div class="col-sm-4 position-relative bg-repeat-0 bg-size-cover"
+                            style="background-image: url(${post.featured_media}); min-height: 15rem;">
+                            <a href="${post.link}" class="position-absolute top-0 start-0 w-100 h-100"
+                                aria-label="Read more"></a>
+                        </div>
+                        <div class="col-sm-8">
+                            <div class="card-body">
+                                <div class="d-flex align-items-center mb-3">
+                                    <a href="/${post.categorie}" class="badge fs-sm text-nav bg-secondary text-decoration-none">
+                                        ${post.categorie}
+                                    </a>
+                                    <span class="fs-sm text-muted border-start ps-3 ms-3">
+                                        ${moment(new Date(0).setUTCSeconds(post.date)).fromNow()}
+                                    </span>
+                                </div>
+                                <h3 class="h4">
+                                    <a href="${post.link}">
+                                        ${post.title}
+                                    </a>
+                                </h3>
+                                <p>
+                                    ${post.short_description}
+                                </p>
+                                <hr class="my-4">
+                                <div class="d-flex align-items-center justify-content-between">
+                                    <a href="#" class="d-flex align-items-center fw-bold text-dark text-decoration-none me-3">
+                                        <img src="${post.author[0].cover}" class="rounded-circle me-3" width="48" alt="Avatar">
+                                        ${post.author[0].name}
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+                `
+                post_items.append(article)
+            })
+        }
     });
 });
 
@@ -117,8 +160,3 @@ async function getPost(){
     return response.text();
 }
 
-var france = $("#france_audio")[0];
-$("#france")
-	.mouseenter(function() {
-		france.play();
-	});
