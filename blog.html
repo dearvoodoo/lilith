@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+
+<html data-bs-theme="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <title>VooDoo - Home</title>
+    <meta name="description" content="Lorem Ipsum">
+    <meta property="og:description" content="Lorem Ipsum">
+    <meta name="twitter:description" content="Lorem Ipsum">
+    <link rel="icon" type="image/x-icon" href="./assets/images/favicon.ico">
+    <link rel="stylesheet" media="screen" href="./assets/css/boxicons.min.css">
+    <link rel="stylesheet" media="screen" href="./assets/font/fontawesome/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.7.2/css/lightgallery-bundle.min.css" integrity="sha512-nUqPe0+ak577sKSMThGcKJauRI7ENhKC2FQAOOmdyCYSrUh0GnwLsZNYqwilpMmplN+3nO3zso8CWUgu33BDag==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" media="screen"
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link rel="stylesheet" media="screen" href="./assets/css/style.css">
+
+    <style>
+        .page-loading {
+            position: fixed;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            -webkit-transition: all .4s .2s ease-in-out;
+            transition: all .4s .2s ease-in-out;
+            background-color: #fff;
+            opacity: 1;
+            visibility: visible;
+            z-index: 9999;
+        }
+
+        [data-bs-theme="dark"] .page-loading {
+            background-color: #0b0f19;
+        }
+
+        .page-loading.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .page-loading-inner {
+            position: absolute;
+            top: 50%;
+            left: 0;
+            width: 100%;
+            text-align: center;
+            -webkit-transform: translateY(-50%);
+            transform: translateY(-50%);
+            -webkit-transition: opacity .2s ease-in-out;
+            transition: opacity .2s ease-in-out;
+            opacity: 1;
+        }
+
+        .page-loading.active>.page-loading-inner {
+            opacity: 1;
+        }
+
+        .page-loading-inner>span {
+            display: block;
+            font-size: 1rem;
+            font-weight: normal;
+            color: #9397ad;
+        }
+
+        [data-bs-theme="dark"] .page-loading-inner>span {
+            color: #fff;
+            opacity: .6;
+        }
+
+        .page-spinner {
+            display: inline-block;
+            width: 2.75rem;
+            height: 2.75rem;
+            margin-bottom: .75rem;
+            vertical-align: text-bottom;
+            border: .15em solid #b4b7c9;
+            border-right-color: transparent;
+            border-radius: 50%;
+            -webkit-animation: spinner .75s linear infinite;
+            animation: spinner .75s linear infinite;
+        }
+
+        [data-bs-theme="dark"] .page-spinner {
+            border-color: rgba(255, 255, 255, .4);
+            border-right-color: transparent;
+        }
+
+        @-webkit-keyframes spinner {
+            100% {
+                -webkit-transform: rotate(360deg);
+                transform: rotate(360deg);
+            }
+        }
+
+        @keyframes spinner {
+            100% {
+                -webkit-transform: rotate(360deg);
+                transform: rotate(360deg);
+            }
+        }
+    </style>
+    <script>
+        (function () {
+            window.onload = function () {
+                const preloader = document.querySelector('.page-loading');
+                preloader.classList.remove('active');
+                setTimeout(function () {
+                    var fadeEffect = setInterval(function () {
+                        if (!preloader.style.opacity) {
+                            preloader.style.opacity = 1;
+                        }
+                        if (preloader.style.opacity > 0) {
+                            preloader.style.opacity -= 0.1;
+                            preloader.remove()
+                        } else {
+                            clearInterval(fadeEffect);
+                        }
+                    }, 100);
+                }, 1000);
+            };
+        })();
+    </script>
+</head>
+
+<body>
+    <div class="page-loading">
+        <div class="page-loading-inner">
+            <span>
+                <div class="page-spinner"></div>
+            </span>
+        </div>
+    </div>
+    <main class="page-wrapper">
+        <!-- Navbar -->
+        <!-- Remove "navbar-sticky" class to make navigation bar scrollable with the page -->
+        <header class="header navbar navbar-expand-lg bg-light navbar-sticky">
+            <div class="container px-3">
+                <a href="index.html" class="navbar-brand pe-3">
+                    <img src="./assets/images/logo_white-rendered.png" width="47" alt="VooDoo">
+                </a>
+                <div id="navbarNav" class="offcanvas offcanvas-end">
+                    <div class="offcanvas-header border-bottom">
+                        <h5 class="offcanvas-title">Menu</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                    </div>
+                    <div class="offcanvas-body">
+                        <ul class="navbar-nav me-auto mb-2 mb-lg-0" id="menu-desktop">
+                            <!-- This menu is generated with jquery -->
+                        </ul>
+                    </div>
+                    <div class="offcanvas-header border-top">
+                        <a href="#" class="btn btn-primary w-100" target="_blank" rel="noopener">
+                            <i class="bx bx-cart fs-4 lh-1 me-1"></i>
+                            &nbsp;Live
+                        </a>
+                    </div>
+                </div>
+                <div class="form-check form-switch mode-switch pe-lg-1 ms-auto me-4" data-bs-toggle="mode">
+                    <input type="checkbox" class="form-check-input" id="theme-mode">
+                    <label class="form-check-label d-none d-sm-block" for="theme-mode">Light</label>
+                    <label class="form-check-label d-none d-sm-block" for="theme-mode">Dark</label>
+                </div>
+                <button type="button" class="navbar-toggler" data-bs-toggle="offcanvas" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <a href="#" class="btn btn-primary btn-sm fs-sm rounded d-none d-lg-inline-flex" target="_blank"
+                    rel="noopener">
+                    <i class="bx bx-cart fs-5 lh-1 me-1"></i>
+                    &nbsp;Live
+                </a>
+            </div>
+        </header>
+
+        <!-- Post navigation -->
+        <nav class="container pt-4 mt-lg-3" aria-label="breadcrumb">
+            <ol class="breadcrumb mb-0">
+                <li class="breadcrumb-item">
+                    <a href="index.html"><i class="bx bx-home-alt fs-lg me-1"></i>Home</a>
+                </li>
+                <li class="breadcrumb-item">
+                    <a href="blog-list-with-sidebar.html">Blog</a>
+                </li>
+                <li class="breadcrumb-item active" aria-current="page" id="nav_post_title">Single Post</li>
+            </ol>
+        </nav>
+
+        <!-- Post info -->
+        <section class="container mt-4 pt-lg-2 pb-3" id="nav_post_info">
+        </section>
+
+        <!-- Paralax -->
+        <div class="jarallax mb-lg-5 mb-4" data-jarallax="" data-speed="0.35" style="height: 36.45vw; min-height: 300px;" data-jarallax-original-styles="height: 36.45vw; min-height: 300px;" id="nav_paralax">
+        </div>
+
+
+        <!-- Posts -->
+        <section class="container mb-5 pt-4 pb-2 py-mg-4">
+            <div class="row gy-4" id="post_content">
+                <!-- Content -->
+
+                <!-- Sharing -->
+            </div>
+        </section>
+
+
+        <!-- Related post -->
+        <section class="container mb-5 pt-md-4">
+            <div class="d-flex flex-sm-row flex-column align-items-center justify-content-between mb-4 pb-1 pb-md-3">
+                <h2 class="h1 mb-sm-0">Related Articles</h2>
+                <a href="blog-list-with-sidebar.html" class="btn btn-lg btn-outline-primary ms-4">
+                    All posts
+                    <i class="bx bx-right-arrow-alt ms-1 me-n1 lh-1 lead"></i>
+                </a>
+            </div>
+
+            <div class="swiper mx-n2 swiper-initialized swiper-horizontal swiper-pointer-events swiper-backface-hidden"
+                data-swiper-options="{
+              &quot;slidesPerView&quot;: 1,
+              &quot;spaceBetween&quot;: 8,
+              &quot;pagination&quot;: {
+                &quot;el&quot;: &quot;.swiper-pagination&quot;,
+                &quot;clickable&quot;: true
+              },
+              &quot;breakpoints&quot;: {
+                &quot;500&quot;: {
+                  &quot;slidesPerView&quot;: 2
+                },
+                &quot;1000&quot;: {
+                  &quot;slidesPerView&quot;: 3
+                }
+              }
+            }">
+                <div class="swiper-wrapper" id="swiper-wrapper-332e649bbba8f5f2" aria-live="polite"
+                    style="transform: translate3d(0px, 0px, 0px);">
+
+                    <!-- Item -->
+                    <div class="swiper-slide h-auto pb-3 swiper-slide-active" style="width: 432px; margin-right: 8px;"
+                        role="group" aria-label="1 / 3">
+                        <article class="card border-0 shadow-sm h-100 mx-2">
+                            <div class="position-relative">
+                                <a href="blog-single.html" class="position-absolute top-0 start-0 w-100 h-100"
+                                    aria-label="Read more"></a>
+                                <a href="#"
+                                    class="btn btn-icon btn-light bg-white border-white btn-sm rounded-circle position-absolute top-0 end-0 zindex-5 me-3 mt-3"
+                                    data-bs-toggle="tooltip" data-bs-placement="left" aria-label="Read later"
+                                    data-bs-original-title="Read later">
+                                    <i class="bx bx-bookmark"></i>
+                                </a>
+                                <img src="https://picsum.photos/1921/1081" class="card-img-top" alt="Image">
+                            </div>
+                            <div class="card-body pb-4">
+                                <div class="d-flex align-items-center justify-content-between mb-3">
+                                    <a href="#"
+                                        class="badge fs-sm text-nav bg-secondary text-decoration-none">Business</a>
+                                    <span class="fs-sm text-muted">May 19, 2023</span>
+                                </div>
+                                <h3 class="h5 mb-0">
+                                    <a href="blog-single.html">5 Bad Landing Page Examples &amp; How We Would Fix
+                                        Them</a>
+                                </h3>
+                            </div>
+                            <div class="card-footer py-4">
+                                <a href="#" class="d-flex align-items-center fw-bold text-dark text-decoration-none">
+                                    <img src="https://picsum.photos/301/301" class="rounded-circle me-3" width="48"
+                                        alt="Avatar">
+                                    Jerome Bell
+                                </a>
+                            </div>
+                        </article>
+                    </div>
+
+                    <!-- Item -->
+                    <div class="swiper-slide h-auto pb-3 swiper-slide-next" style="width: 432px; margin-right: 8px;"
+                        role="group" aria-label="2 / 3">
+                        <article class="card border-0 shadow-sm h-100 mx-2">
+                            <div class="position-relative">
+                                <a href="blog-single.html" class="position-absolute top-0 start-0 w-100 h-100"
+                                    aria-label="Read more"></a>
+                                <a href="#"
+                                    class="btn btn-icon btn-light bg-white border-white btn-sm rounded-circle position-absolute top-0 end-0 zindex-5 me-3 mt-3"
+                                    data-bs-toggle="tooltip" data-bs-placement="left" aria-label="Read later"
+                                    data-bs-original-title="Read later">
+                                    <i class="bx bx-bookmark"></i>
+                                </a>
+                                <img src="https://picsum.photos/1922/1082" class="card-img-top" alt="Image">
+                            </div>
+                            <div class="card-body pb-4">
+                                <div class="d-flex align-items-center justify-content-between mb-3">
+                                    <a href="#"
+                                        class="badge fs-sm text-nav bg-secondary text-decoration-none">Marketing</a>
+                                    <span class="fs-sm text-muted">Apr 2, 2023</span>
+                                </div>
+                                <h3 class="h5 mb-0">
+                                    <a href="blog-single.html">How Agile is Your Forecasting Process?</a>
+                                </h3>
+                            </div>
+                            <div class="card-footer py-4">
+                                <a href="#" class="d-flex align-items-center fw-bold text-dark text-decoration-none">
+                                    <img src="https://picsum.photos/302/302" class="rounded-circle me-3" width="48"
+                                        alt="Avatar">
+                                    Albert Flores
+                                </a>
+                            </div>
+                        </article>
+                    </div>
+
+                    <!-- Item -->
+                    <div class="swiper-slide h-auto pb-3" role="group" aria-label="3 / 3"
+                        style="width: 432px; margin-right: 8px;">
+                        <article class="card border-0 shadow-sm h-100 mx-2">
+                            <div class="position-relative">
+                                <a href="blog-single.html" class="position-absolute top-0 start-0 w-100 h-100"
+                                    aria-label="Read more"></a>
+                                <a href="#"
+                                    class="btn btn-icon btn-light bg-white border-white btn-sm rounded-circle position-absolute top-0 end-0 zindex-5 me-3 mt-3"
+                                    data-bs-toggle="tooltip" data-bs-placement="left" aria-label="Read later"
+                                    data-bs-original-title="Read later">
+                                    <i class="bx bx-bookmark"></i>
+                                </a>
+                                <img src="https://picsum.photos/1923/1083" class="card-img-top" alt="Image">
+                            </div>
+                            <div class="card-body pb-4">
+                                <div class="d-flex align-items-center justify-content-between mb-3">
+                                    <a href="#"
+                                        class="badge fs-sm text-nav bg-secondary text-decoration-none">Business</a>
+                                    <span class="fs-sm text-muted">Sep 16, 2023</span>
+                                </div>
+                                <h3 class="h5 mb-0">
+                                    <a href="blog-single.html">This Week in Search: New Limits and Exciting Features</a>
+                                </h3>
+                            </div>
+                            <div class="card-footer py-4">
+                                <a href="#" class="d-flex align-items-center fw-bold text-dark text-decoration-none">
+                                    <img src="https://picsum.photos/303/303" class="rounded-circle me-3" width="48"
+                                        alt="Avatar">
+                                    Ralph Edwards
+                                </a>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+
+                <!-- Pagination (bullets) -->
+                <div
+                    class="swiper-pagination position-relative pt-2 pt-sm-3 mt-4 swiper-pagination-clickable swiper-pagination-bullets swiper-pagination-horizontal swiper-pagination-lock">
+                    <span class="swiper-pagination-bullet swiper-pagination-bullet-active" tabindex="0" role="button"
+                        aria-label="Go to slide 1" aria-current="true"></span></div>
+                <span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer bg-dark border-top pt-5 pb-4 pb-lg-5" data-bs-theme="dark">
+        <div class="container pt-lg-4">
+            <div class="row pb-5">
+                <div class="col-lg-4 col-md-6">
+                    <div class="navbar-brand text-dark p-0 me-0 mb-3 mb-lg-4">
+                        <img src="./assets/images/logo_white-rendered.png" width="47" alt="Silicon"> VooDoo
+                    </div>
+                    <p class="fs-sm text-light opacity-70 pb-lg-3 mb-4">Proin ipsum pharetra, senectus eget scelerisque
+                        varius pretium platea velit. Lacus, eget eu vitae nullam proin turpis etiam mi sit. Non feugiat
+                        feugiat egestas nulla nec. Arcu tempus, eget elementum dolor ullamcorper sodales ultrices eros.
+                    </p>
+                </div>
+                <div class="col-xl-6 col-lg-7 col-md-5 offset-xl-2 offset-md-1 pt-4 pt-md-1 pt-lg-0">
+                    <div id="footer-links" class="row">
+                        <div class="col-lg-4">
+                            <h6 class="mb-2">
+                                <a href="#useful-links" class="d-block text-dark dropdown-toggle d-lg-none py-2"
+                                    data-bs-toggle="collapse">Useful Links</a>
+                            </h6>
+                            <div id="useful-links" class="collapse d-lg-block" data-bs-parent="#footer-links">
+                                <ul class="nav flex-column pb-lg-1 mb-lg-3">
+                                    <li class="nav-item"><a href="#"
+                                            class="nav-link d-inline-block px-0 pt-1 pb-2">Home</a></li>
+                                    <li class="nav-item"><a href="#"
+                                            class="nav-link d-inline-block px-0 pt-1 pb-2">Services</a></li>
+                                    <li class="nav-item"><a href="#" class="nav-link d-inline-block px-0 pt-1 pb-2">Our
+                                            Works</a></li>
+                                    <li class="nav-item"><a href="#"
+                                            class="nav-link d-inline-block px-0 pt-1 pb-2">About</a></li>
+                                    <li class="nav-item"><a href="#"
+                                            class="nav-link d-inline-block px-0 pt-1 pb-2">Blog</a></li>
+                                </ul>
+                                <ul class="nav flex-column mb-2 mb-lg-0">
+                                    <li class="nav-item"><a href="#"
+                                            class="nav-link d-inline-block px-0 pt-1 pb-2">Terms &amp; Conditions</a>
+                                    </li>
+                                    <li class="nav-item"><a href="#"
+                                            class="nav-link d-inline-block px-0 pt-1 pb-2">Privacy Policy</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-xl-4 col-lg-3">
+                            <h6 class="mb-2">
+                                <a href="#social-links" class="d-block text-dark dropdown-toggle d-lg-none py-2"
+                                    data-bs-toggle="collapse">Socials</a>
+                            </h6>
+                            <div id="social-links" class="collapse d-lg-block" data-bs-parent="#footer-links">
+                                <ul class="nav flex-column mb-2 mb-lg-0">
+                                    <li class="nav-item"><a href="#"
+                                            class="nav-link d-inline-block px-0 pt-1 pb-2">Facebook</a></li>
+                                    <li class="nav-item"><a href="#"
+                                            class="nav-link d-inline-block px-0 pt-1 pb-2">LinkedIn</a></li>
+                                    <li class="nav-item"><a href="#"
+                                            class="nav-link d-inline-block px-0 pt-1 pb-2">Twitter</a></li>
+                                    <li class="nav-item"><a href="#"
+                                            class="nav-link d-inline-block px-0 pt-1 pb-2">Instagram</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-xl-4 col-lg-5 pt-2 pt-lg-0">
+                            <h6 class="mb-2">Contact Us</h6>
+                            <a href="mailto:email@example.com" class="fw-medium">email@example.com</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <p class="nav d-block fs-xs text-center text-md-start pb-2 pb-lg-0 mb-0">
+                <span class="text-light opacity-50">© All rights reserved. Made with love by </span>
+                <a class="nav-link d-inline-block p-0" href="#" target="_blank" rel="noopener">VooDoo</a> in <a href="#"
+                    class="nav-link d-inline-block p-0" rel="noopener" id="france">France</a>.
+
+                <audio controls preload="auto" style="display:none" id="france_audio">
+                    <source src="./assets/audio/france.mp3" controls>
+                    </source>
+                </audio>
+            </p>
+        </div>
+    </footer>
+    <a href="#top" class="btn-scroll-top show" data-scroll="">
+        <span class="btn-scroll-top-tooltip text-muted fs-sm me-2">Top</span>
+        <i class="btn-scroll-top-icon bx bx-chevron-up"></i>
+    </a>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jarallax/2.2.0/jarallax.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.7.2/lightgallery.min.js" integrity="sha512-jEJ0OA9fwz5wUn6rVfGhAXiiCSGrjYCwtQRUwI/wRGEuWRZxrnxoeDoNc+Pnhx8qwKVHs2BRQrVR9RE6T4UHBg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.7.2/plugins/zoom/lg-zoom.min.js" integrity="sha512-BLW2Jrofiqm6m7JhkQDIh2olT0EBI58+hIL/AXWvo8gOXKmsNlU6myJyEkTy6rOAAZjn0032FRk8sl9RgXPYIQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.7.2/plugins/fullscreen/lg-fullscreen.min.js" integrity="sha512-11B0rPDzvnSOYzAT37QdnYgt0z9Xg+wX5tckB1QKl5Znl8RPvrB5npo38K2jCt+Ad44udCfBiKt9D4jRdkSE1A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.7.2/plugins/video/lg-video.min.js" integrity="sha512-Eo7d/1I/2Yywxw/unjfX06Q+owD82+3ign70yHtNTajId+C3CcHeqb+XP/a+uq/Fhrrkf8MeBcBiZqoMASFiiw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/11.0.5/swiper-bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.30.1/moment-with-locales.min.js"
+        integrity="sha512-4F1cxYdMiAW98oomSLaygEwmCnIP38pb4Kx70yQYqRwLVCs3DbRumfBq82T08g/4LJ/smbFGFpmeFlQgoDccgg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.30.1/locale/fr.min.js"
+        integrity="sha512-RAt2+PIRwJiyjWpzvvhKAG2LEdPpQhTgWfbEkFDCo8wC4rFYh5GQzJBVIFDswwaEDEYX16GEE/4fpeDNr7OIZw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="./assets/js/theme-switcher.js"></script>
+    <script src="./assets/js/script.js"></script>
+    <script src="./assets/js/global.js"></script>
+    <script src="./assets/js/navbar.js"></script>
+    <script src="./assets/js/blog.js"></script>
+</body>
+
+</html>
